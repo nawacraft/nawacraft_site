@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.github
+out
+build
+*.log
+.DS_Store
+README.md
+AGENTS.md
