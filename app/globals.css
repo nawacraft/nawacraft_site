@@ -1,26 +1,436 @@
 @import "tailwindcss";
 
+@theme {
+  /* -------------------------------------------------------------
+   * PRIMARY PALETTE: Velvet Plum / Wine Red (#953553)
+   * Base hue: 341.2°, Saturation: 47.5%, Lightness: 39.6%
+   * ------------------------------------------------------------- */
+  --color-primary-50: #fdf5f7;
+  --color-primary-100: #fce8ee;
+  --color-primary-200: #f8d2dc;
+  --color-primary-300: #f1aac0;
+  --color-primary-400: #de6c8f;
+  --color-primary-500: #b84367;
+  --color-primary-600: #953553;
+  --color-primary-700: #7b2a43;
+  --color-primary-800: #642337;
+  --color-primary-900: #521f2f;
+  --color-primary-950: #2f0d19;
+
+  /* -------------------------------------------------------------
+   * SECONDARY PALETTE: Deep Spruce Teal (#359577)
+   * Exact 180° Complement on Color Wheel (Hue: 161.2°)
+   * Saturation: 47.5%, Lightness: 39.6%
+   * ------------------------------------------------------------- */
+  --color-secondary-50: #f2faf6;
+  --color-secondary-100: #e1f5ed;
+  --color-secondary-200: #c4ecdc;
+  --color-secondary-300: #97d9c1;
+  --color-secondary-400: #5ebda0;
+  --color-secondary-500: #42a688;
+  --color-secondary-600: #359577;
+  --color-secondary-700: #2a7961;
+  --color-secondary-800: #24614f;
+  --color-secondary-900: #205042;
+  --color-secondary-950: #0d2c23;
+
+  /* -------------------------------------------------------------
+   * NEUTRAL PALETTE: Harmonized Mauve-Slate
+   * Subtle warm-slate undertone tailored to complement #953553
+   * ------------------------------------------------------------- */
+  --color-neutral-50: #faf9fb;
+  --color-neutral-100: #f4f2f5;
+  --color-neutral-200: #eae7ec;
+  --color-neutral-300: #d7d3dc;
+  --color-neutral-400: #a7a1b0;
+  --color-neutral-500: #7a7385;
+  --color-neutral-600: #5d5667;
+  --color-neutral-700: #463f4f;
+  --color-neutral-800: #2d2834;
+  --color-neutral-900: #1b1720;
+  --color-neutral-950: #0f0c13;
+
+  /* -------------------------------------------------------------
+   * SEMANTIC PALETTE: Success (Clean Emerald - Hue 142°)
+   * Distinct from Spruce Teal to guarantee unmistakable recognition
+   * ------------------------------------------------------------- */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
+
+  /* -------------------------------------------------------------
+   * SEMANTIC PALETTE: Danger / Failure (Crimson Scarlet - Hue 358°)
+   * Distinct from brand wine plum with high contrast urgency
+   * ------------------------------------------------------------- */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+  --color-danger-950: #450a0a;
+
+  /* -------------------------------------------------------------
+   * SEMANTIC PALETTE: Warning (Amber Marigold - Hue 38°)
+   * ------------------------------------------------------------- */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+
+  /* -------------------------------------------------------------
+   * SEMANTIC PALETTE: Info (Cerulean Sky - Hue 205°)
+   * ------------------------------------------------------------- */
+  --color-info-50: #f0f9ff;
+  --color-info-100: #e0f2fe;
+  --color-info-200: #bae6fd;
+  --color-info-300: #7dd3fc;
+  --color-info-400: #38bdf8;
+  --color-info-500: #0ea5e9;
+  --color-info-600: #0284c7;
+  --color-info-700: #0369a1;
+  --color-info-800: #075985;
+  --color-info-900: #0c4a6e;
+  --color-info-950: #082f49;
+
+  /* -------------------------------------------------------------
+   * TYPOGRAPHY TOKENS
+   * ------------------------------------------------------------- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* -------------------------------------------------------------
+ * SEMANTIC DESIGN TOKENS (LIGHT & DARK THEMES)
+ * ------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-scheme: light;
+
+  /* Core Canvas */
+  --background: #faf9fb;
+  --foreground: #1b1720;
+
+  /* Surface Layers */
+  --surface-base: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-sunken: #f4f2f5;
+  --surface-overlay: rgba(255, 255, 255, 0.85);
+
+  /* Borders & Dividers */
+  --border-subtle: #eae7ec;
+  --border-default: #d7d3dc;
+  --border-strong: #a7a1b0;
+
+  /* Text & Content */
+  --text-primary: #1b1720;
+  --text-secondary: #5d5667;
+  --text-muted: #7a7385;
+  --text-inverse: #ffffff;
+
+  /* Brand Primary (#953553) */
+  --brand-primary: #953553;
+  --brand-primary-hover: #7b2a43;
+  --brand-primary-active: #642337;
+  --brand-primary-subtle: #fdf5f7;
+  --brand-primary-border: #f8d2dc;
+  --brand-primary-foreground: #ffffff;
+
+  /* Brand Secondary (#359577) */
+  --brand-secondary: #359577;
+  --brand-secondary-hover: #2a7961;
+  --brand-secondary-active: #24614f;
+  --brand-secondary-subtle: #f2faf6;
+  --brand-secondary-border: #c4ecdc;
+  --brand-secondary-foreground: #ffffff;
+
+  /* Semantic Feedback: Success */
+  --status-success: #16a34a;
+  --status-success-subtle: #f0fdf4;
+  --status-success-border: #bbf7d0;
+  --status-success-foreground: #14532d;
+
+  /* Semantic Feedback: Danger / Failure */
+  --status-danger: #dc2626;
+  --status-danger-subtle: #fef2f2;
+  --status-danger-border: #fecaca;
+  --status-danger-foreground: #7f1d1d;
+
+  /* Semantic Feedback: Warning */
+  --status-warning: #d97706;
+  --status-warning-subtle: #fffbeb;
+  --status-warning-border: #fde68a;
+  --status-warning-foreground: #78350f;
+
+  /* Semantic Feedback: Info */
+  --status-info: #0284c7;
+  --status-info-subtle: #f0f9ff;
+  --status-info-border: #bae6fd;
+  --status-info-foreground: #0c4a6e;
+
+  /* Focus & Elevation */
+  --focus-ring: #953553;
+  --shadow-subtle: 0 1px 2px 0 rgba(27, 23, 32, 0.05);
+  --shadow-elevated: 0 4px 6px -1px rgba(27, 23, 32, 0.08), 0 2px 4px -2px rgba(27, 23, 32, 0.06);
+  --shadow-prominent: 0 12px 24px -4px rgba(27, 23, 32, 0.12), 0 4px 8px -2px rgba(27, 23, 32, 0.06);
+}
+
+.dark,
+[data-theme="dark"] {
+  --color-scheme: dark;
+
+  /* Core Canvas */
+  --background: #0f0c13;
+  --foreground: #faf9fb;
+
+  /* Surface Layers */
+  --surface-base: #1b1720;
+  --surface-elevated: #241f2b;
+  --surface-sunken: #141018;
+  --surface-overlay: rgba(27, 23, 32, 0.85);
+
+  /* Borders & Dividers */
+  --border-subtle: #2d2834;
+  --border-default: #463f4f;
+  --border-strong: #5d5667;
+
+  /* Text & Content */
+  --text-primary: #faf9fb;
+  --text-secondary: #d7d3dc;
+  --text-muted: #a7a1b0;
+  --text-inverse: #0f0c13;
+
+  /* Brand Primary (#953553) */
+  --brand-primary: #de6c8f;
+  --brand-primary-hover: #f1aac0;
+  --brand-primary-active: #f8d2dc;
+  --brand-primary-subtle: rgba(149, 53, 83, 0.18);
+  --brand-primary-border: rgba(222, 108, 143, 0.35);
+  --brand-primary-foreground: #ffffff;
+
+  /* Brand Secondary (#359577) */
+  --brand-secondary: #5ebda0;
+  --brand-secondary-hover: #97d9c1;
+  --brand-secondary-active: #c4ecdc;
+  --brand-secondary-subtle: rgba(53, 149, 119, 0.18);
+  --brand-secondary-border: rgba(94, 189, 160, 0.35);
+  --brand-secondary-foreground: #ffffff;
+
+  /* Semantic Feedback: Success */
+  --status-success: #4ade80;
+  --status-success-subtle: rgba(34, 197, 94, 0.15);
+  --status-success-border: rgba(74, 222, 128, 0.3);
+  --status-success-foreground: #bbf7d0;
+
+  /* Semantic Feedback: Danger / Failure */
+  --status-danger: #f87171;
+  --status-danger-subtle: rgba(239, 68, 68, 0.15);
+  --status-danger-border: rgba(248, 113, 113, 0.3);
+  --status-danger-foreground: #fecaca;
+
+  /* Semantic Feedback: Warning */
+  --status-warning: #fbbf24;
+  --status-warning-subtle: rgba(245, 158, 11, 0.15);
+  --status-warning-border: rgba(251, 191, 36, 0.3);
+  --status-warning-foreground: #fde68a;
+
+  /* Semantic Feedback: Info */
+  --status-info: #38bdf8;
+  --status-info-subtle: rgba(14, 165, 233, 0.15);
+  --status-info-border: rgba(56, 189, 248, 0.3);
+  --status-info-foreground: #bae6fd;
+
+  /* Focus & Elevation */
+  --focus-ring: #de6c8f;
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-elevated: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.35);
+  --shadow-prominent: 0 12px 24px -4px rgba(0, 0, 0, 0.6), 0 4px 8px -2px rgba(0, 0, 0, 0.4);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface-base);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-brand: var(--brand-primary);
+  --color-brand-foreground: var(--brand-primary-foreground);
+  --color-brand-subtle: var(--brand-primary-subtle);
+
+  --color-accent: var(--brand-secondary);
+  --color-accent-foreground: var(--brand-secondary-foreground);
+  --color-accent-subtle: var(--brand-secondary-subtle);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base Body Setup */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Design System Typography Utilities */
+.text-display-2xl {
+  font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.text-display-xl {
+  font-size: clamp(2rem, 3vw + 0.75rem, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.text-heading-xl {
+  font-size: 1.875rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-heading-lg {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.text-heading-md {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-heading-sm {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-body-md {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.text-body-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+}
+
+/* -------------------------------------------------------------
+ * PLAYFUL MINIMALIST ANIMATIONS & MOTION
+ * ------------------------------------------------------------- */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(4deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-5deg);
+  }
 }
+
+@keyframes float-spin {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes playful-wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg) scale(1.04);
+  }
+  75% {
+    transform: rotate(6deg) scale(1.04);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 8.5s ease-in-out infinite;
+}
+
+.animate-float-spin {
+  animation: float-spin 24s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.animate-playful-wiggle:hover {
+  animation: playful-wiggle 0.5s ease-in-out;
+}
+
