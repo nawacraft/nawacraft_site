@@ -128,14 +128,23 @@ export default function RootLayout({
           latitude: 27.6588,
           longitude: 85.3247,
         },
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+977-1-5500000",
-          contactType: "customer service",
-          email: "contact@nawacraft.com",
-          areaServed: "NP",
-          availableLanguage: ["English", "Nepali"],
-        },
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: "+977-986-0675235",
+            contactType: "customer service",
+            email: "nawacraftsolution@gmail.com",
+            areaServed: "NP",
+            availableLanguage: ["English", "Nepali"],
+          },
+          {
+            "@type": "ContactPoint",
+            telephone: "+977-981-7306165",
+            contactType: "customer service",
+            areaServed: "NP",
+            availableLanguage: ["English", "Nepali"],
+          },
+        ],
         sameAs: [
           "https://linkedin.com",
           "https://github.com",

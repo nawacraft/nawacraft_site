@@ -44,14 +44,36 @@ export const ContactSection: React.FC = () => {
                   <div className="p-2 rounded-lg bg-[#111014]/[0.04] text-[#953553]">
                     <Phone className="h-4 w-4" />
                   </div>
-                  <div>
-                    <span className="text-xs text-[#111014]/50 block">Phone Support</span>
-                    <a
-                      href="tel:+97715500000"
-                      className="font-medium hover:text-[#953553] transition-colors"
-                    >
-                      {COMPANY_INFO.phone}
-                    </a>
+                  <div className="flex-1">
+                    <span className="text-xs text-[#111014]/50 block mb-1.5">
+                      Mobile / WhatsApp / Viber
+                    </span>
+                    <div className="space-y-2">
+                      {COMPANY_INFO.phones.map((p) => (
+                        <div key={p.tel} className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                          <a
+                            href={`tel:${p.tel}`}
+                            className="font-medium hover:text-[#953553] transition-colors"
+                          >
+                            {p.display}
+                          </a>
+                          <a
+                            href={`https://wa.me/${p.whatsapp}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] font-medium px-1.5 py-0.5 rounded bg-[#25D366]/10 text-[#1DA851] hover:bg-[#25D366]/20 transition-colors"
+                          >
+                            WhatsApp
+                          </a>
+                          <a
+                            href={`viber://chat?number=%2B${p.whatsapp}`}
+                            className="text-[11px] font-medium px-1.5 py-0.5 rounded bg-[#7360F2]/10 text-[#665CAC] hover:bg-[#7360F2]/20 transition-colors"
+                          >
+                            Viber
+                          </a>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 

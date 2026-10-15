@@ -18,8 +18,12 @@ export const COMPANY_INFO = {
   name: "Nawacraft Pvt. Ltd.",
   tagline: "We craft software that runs businesses.",
   location: "Mahalaxmisthan, Lalitpur, Nepal",
-  email: "contact@nawacraft.com",
-  phone: "+977 1-5500000 / +977 9800000000",
+  email: "nawacraftsolution@gmail.com",
+  // Each number doubles as a WhatsApp / Viber contact.
+  phones: [
+    { display: "986-0675235", tel: "+9779860675235", whatsapp: "9779860675235" },
+    { display: "981-7306165", tel: "+9779817306165", whatsapp: "9779817306165" },
+  ],
   copyrightYear: 2026,
   socials: [
     { name: "LinkedIn", href: "https://linkedin.com" },
@@ -28,63 +32,56 @@ export const COMPANY_INFO = {
   ],
 };
 
-// All 9 Founding Specialists
-export const TEAM_MEMBERS = [
-  {
-    name: "Aayush Adhikari",
-    role: "Frontend Engineer",
-    expertise: "Builds fast, responsive web interfaces with fluid user experience.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Rohan Shrestha",
-    role: "Backend Engineer",
-    expertise: "Architects scalable distributed APIs and secure database pipelines.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Pooja Sharma",
-    role: "UI/UX Designer",
-    expertise: "Designs clean design systems and effortless user journeys.",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Bibek Thapa",
-    role: "Mobile Developer",
-    expertise: "Delivers cross-platform iOS and Android apps with native performance.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Suman Joshi",
-    role: "Product Developer",
-    expertise: "Translates business problems into functional, tested product specs.",
-    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Kripa Maharjan",
-    role: "Marketing Lead",
-    expertise: "Drives product positioning, organic growth, and customer acquisition.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Anish Karki",
-    role: "Business Development Officer",
-    expertise: "Forges retail partnerships and scales enterprise client pipelines.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Prabin Tamang",
-    role: "DevOps & Cloud Engineer",
-    expertise: "Automates zero-downtime deployments and manages hardware telemetry.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "Sneha Basnet",
-    role: "QA & Reliability Engineer",
-    expertise: "Guarantees zero hardware synchronization errors and robust data security.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80",
-  },
-];
+// Founding Team
+export const TEAM_MEMBERS: {
+  name: string;
+  role: string;
+  expertise: string;
+  image?: string;
+}[] = [
+    {
+      name: "Sudip Bhandari",
+      role: "Senior Software Engineer (Backend)",
+      expertise: "Architects scalable distributed APIs and secure database pipelines.",
+      image: "/team/sudip-bhandari.png",
+    },
+    {
+      name: "Aashish Khanal",
+      role: "Fullstack Engineer",
+      expertise: "Builds end-to-end features across frontend and backend with equal depth.",
+      image: "/team/aashish-khanal.png",
+    },
+    {
+      name: "Basanta Sunuwar",
+      role: "Project Manager",
+      expertise: "Keeps delivery on schedule and client requirements translated into execution.",
+      image: "/team/basanta-sunuwar.png",
+    },
+    {
+      name: "Prakash Tamu",
+      role: "Fullstack Engineer",
+      expertise: "Ships reliable, tested features across the full product stack.",
+      image: "/team/prakash-tamu.png",
+    },
+    {
+      name: "Sahil Ramjali",
+      role: "Mobile Developer",
+      expertise: "Delivers cross-platform iOS and Android apps with native performance.",
+      image: "/team/sahil-ramjali.png",
+    },
+    {
+      name: "Ram Katwal",
+      role: "UI/UX Designer",
+      expertise: "Designs clean design systems and effortless user journeys.",
+      image: "/team/ram-katwal.png",
+    },
+    {
+      name: "Anup Acharya",
+      role: "Business Development Manager",
+      expertise: "Drives sales and partnership growth across the Nepalese market.",
+      // No photo yet — TeamSection falls back to an initials avatar.
+    },
+  ];
 
 // 6 Core Services
 export const SERVICES = [
